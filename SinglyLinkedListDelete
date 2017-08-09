@@ -1,0 +1,233 @@
+/**
+ * Created by Nur Nabhan on 8/9/2017.
+ */
+public class LinkedListDelete
+
+{
+
+    private IntegerNode head;
+
+    private int numberOfItems;
+
+    private IntegerNode tail;
+
+    private IntegerNode next;
+
+    /** default constructor
+
+     *   constructors an empty list
+
+     */
+
+    public IntegerLinkedList( )
+
+    {
+        head = null;
+
+        numberOfItems = 0;
+
+        tail = null;
+
+
+    }
+
+
+
+    /** accessor for numberOfItems
+
+     *    numberOfItmes
+
+     */
+
+    public int getNumberOfItems( )
+
+    {
+
+        return numberOfItems;
+
+    }
+
+
+
+    /** insert method
+
+     *    value  data to  insert
+
+     *    inserts node at head
+
+     */
+
+    public void insert( int value )
+
+    {
+
+        IntegerNode nd = new IntegerNode( value );
+
+        nd.setNext( head );
+
+        head = nd;
+
+        numberOfItems++;
+
+    }
+
+
+
+    public void insertAt( int index, int value )
+
+    {
+
+        IntegerNode temp = new IntegerNode( value );
+
+        temp = head;
+
+
+
+        for ( int i = 0; i < index - 1; i ++ )
+
+        {
+            temp = temp.getNext();
+
+        }
+
+
+        IntegerNode theNode = new IntegerNode();
+
+        theNode.setData(value);
+
+        theNode.setNext(temp.getNext());
+
+        temp.setNext(theNode);
+
+
+
+        numberOfItems++;
+
+
+    }
+
+
+
+    public void append( int value )
+
+    {
+
+
+
+        IntegerNode nd = new IntegerNode( value );
+
+
+
+        if ( head == null )
+
+        {
+
+            head = nd;
+
+        }
+
+
+
+        else
+
+        {
+
+            nd.setNext(tail.getNext());
+
+            tail = tail.getNext();
+
+
+            numberOfItems++;
+
+        }
+
+    }
+
+
+
+
+
+    /** delete method
+
+     *   value   the value to delete
+
+     *   true if value was deleted, false otherwise
+
+     */
+
+    public boolean delete( int value )
+
+    {
+
+        IntegerNode current = head;
+
+        IntegerNode previous = null;
+
+        while ( current != null
+
+                && current.getData( ) != value )
+
+        {
+
+            previous = current;
+
+            current = current.getNext( );
+
+        }
+
+
+        if ( current == null ) // not found
+
+            return false;
+
+        else
+
+        {
+
+            if ( current == head )
+
+                head = head.getNext( );  // delete head
+
+            else
+
+                previous.setNext( current.getNext( ) );
+
+
+
+            numberOfItems--;
+
+            return  true;
+
+        }
+
+    }
+
+
+
+    /** toString
+     
+     *  values in list separated by a space
+   
+     */
+
+    public String toString( )
+
+    {
+
+        String listString = "";
+
+        IntegerNode current = head;
+
+        for ( int i = 0; i < numberOfItems; i++ )
+        {
+
+            listString += current.getData( ) + "  ";
+
+            current = current.getNext( );
+
+        }
+
+        return listString;
+
+    }
+
