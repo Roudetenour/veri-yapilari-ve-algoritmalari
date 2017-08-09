@@ -1,7 +1,5 @@
 /**
- * Created by Nur Nabhan on 8/9/2017.
- */
-/**
+ * Created by Nur Nabhan on 8/9/2017
  * A list implemented using a singly-linked list
  */
 
@@ -55,48 +53,6 @@ public class LinkedListAddMethod<E> {
     // so only call this at the beginning or end of a public method.
 
 
-    /**
-     * checks assertion
-     */
-    private void verify(boolean mustBeTrue) {
-        if (! mustBeTrue) {
-            throw new java.lang.AssertionError("assertion error");
-        }
-    }
-
-
-    /**
-     * checks class invariants
-     * @throws java.lang.AssertionError if the invariant is violated
-     */
-    private void checkInvariants() {
-        // uncomment the next line to skip the checks:
-        // return;
-        // either head and tail are both null, or neither is null.
-        // size is zero if and only if they are null, and otherwise is positive
-        verify((head == null) == (tail == null));
-        verify((size == 0) == (head == null));
-        verify(size >= 0);
-        // if the list only has one element, head should be the same as tail
-        // (and also if the list has no elements), otherwise they should differ
-        verify((head == tail) == (size <= 1));
-        // a non-null tail variable should always have a null "next" field
-        verify((tail == null) || (tail.next == null));
-        // check to make sure size is the same as the length of the list.
-        // this code takes O(n), so comment it out if performance is important
-        int measuredSize = 0;
-        LinkedNode<E> node = head;
-        // if visitedLast is null, the list is empty, and tail should also be null
-        LinkedNode<E> visitedLast = null;
-        while (node != null) {
-            visitedLast = node;
-            node = node.next;
-            measuredSize++;
-        }
-        verify(measuredSize == size);
-        // also make sure "last" really is the last node in the linked list
-        verify(visitedLast == tail);
-    }
 
 
     /**
@@ -120,7 +76,6 @@ public class LinkedListAddMethod<E> {
 
     /**
      * adds at the head of the list
-     * @param the value to be added
      */
     private void addAtFront(E value) {
         head = new LinkedNode<E>(value, head);
@@ -132,8 +87,6 @@ public class LinkedListAddMethod<E> {
 
     /**
      * adds at the tail of the list.  Assumes (and checks) that tail is not null
-     * @param the value to be added
-     * @throws RuntimeException
      */
     private void addAtEnd(E value) {
         if (tail == null) {
@@ -147,8 +100,6 @@ public class LinkedListAddMethod<E> {
 
     /**
      * adds a value to the list after the given node
-     * @param the node after which the new value is added
-     * @param the value to be added
      */
     private void addAfter(LinkedNode<E> reference, E value) {
         LinkedNode<E> newNode = new LinkedNode<E>(value, reference.next);
@@ -161,8 +112,6 @@ public class LinkedListAddMethod<E> {
 
     /**
      * adds a value to the end of the list
-     * @param the value to be added
-     * @return true (the add always succeeds)
      */
     public boolean add(E value) {
         checkInvariants();  // useful for debugging
@@ -179,29 +128,7 @@ public class LinkedListAddMethod<E> {
 
 
     /**
-     * returns the node at the requested position, may take time O(n)
-     * @param the position of the requested node, 0 for the head node
-     * @return the requested node
-     * @throws NullPointerException if the index is larger than the linked list
-     */
-    private LinkedNode<E> nodeAtPosition(int index) {
-        verify (index >= 0);
-        LinkedNode<E> result = head;
-        while (index > 0) {
-            result = result.next;
-            index--;
-        }
-        verify (result != null);
-        return result;
-    }
-
-
-    /**
      * adds a value to the list, in the given position
-     * @param the position at which to add: 0 to add at the start
-     * @param the value to be added
-     * @throws IndexOutOfBoundsException if the index is less than 0
-     *         or greater than the number of elements in the linked list
      */
     public void add(int index, E value) {
         checkInvariants();
@@ -222,7 +149,6 @@ public class LinkedListAddMethod<E> {
 
     /**
      * concatenates the elements of the linked list, separated by " ==> "
-     * @return the string representation of the list
      */
     public String toString() {
         checkInvariants();
@@ -242,7 +168,6 @@ public class LinkedListAddMethod<E> {
 
     /**
      * unit test method -- basic testing of the functionality
-     * @param required, ignored
      */
     public static void main (String [] arguments) {
         LinkedList<String> ll = new LinkedList<String>();
