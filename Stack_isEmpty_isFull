@@ -1,0 +1,56 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class IntegerStack {
+
+    private List<Integer> stack;
+
+    public IntegerStack(int SIZE) {
+        stack = new ArrayList<Integer>(SIZE);
+    }
+
+    /* method to push the stack */
+    public void push(int i) {
+
+        stack.add(0, i);
+    }
+
+    /* method to pop the stack */
+    public int pop() {
+        if (!stack.isEmpty()) {
+            int i = stack.get(0);
+            stack.remove(0);
+            return i;
+        } else {
+            return -1;// Or any invalid value
+        }
+    }
+
+    /* method to peek at the stack */
+    public int peek() {
+        if (!stack.isEmpty()) {
+            return stack.get(0);
+        } else {
+            return -1;// Or any invalid value
+        }
+    }
+
+    /* determine if the stack is empty */
+    public boolean isEmpty() {
+        stack.isEmpty();
+    }
+
+    /* determine if the stack is full */
+    public boolean isFull() {
+        stack.isFull();
+    }
+
+    /* determine the size of the stack */
+    public int size() {
+        if (stack.isEmpty())
+            return 0;
+        else
+            return stack.size();
+    }
+
+}
