@@ -1,0 +1,11 @@
+/*the recursive call, when it happens, comes before other processing in the function*/
+
+
+public void head(int n)
+{
+     if(n == 0)
+        return;
+     else
+        head(n-1);
+   System.out.println(n);
+ }
