@@ -1,0 +1,23 @@
+/**
+ * Created by Nur Nabhan on 8/15/2017.
+ */
+/** Bir k sayısı tek ise 3 ile çarp 1 ekle, çift ise 2’ye bol. k=1 ise dur. Kaç adım sürer hesapla**/
+import java.util.Scanner;
+
+public class ornek3 {
+    public static void main ( String args[])
+        {   System.out.println(" Enter your number :");
+            int k , c , t;
+            Scanner in=new Scanner(System.in);
+            k=in.nextInt();
+           if   ( k%2==0 ) {
+               c = k / 2;
+               System.out.println(""+c);
+           }
+           else {
+               t = (k * 3) + 1;
+               System.out.println("" + t);
+           }
+        }
+
+        }
