@@ -1,0 +1,41 @@
+/**
+ * Created by Nur Nabhan on 8/15/2017.
+ */
+import java.util.Scanner;
+import java.lang.*;
+public class IkincidercedenDenklem {
+    public static void main (String args[] ) {
+        int a, b, c;
+        int x , x1 , x2 ;
+        System.out.println("print your variables :");
+        Scanner in = new Scanner(System.in);
+        a = in.nextInt();
+        b = in.nextInt();
+        c = in.nextInt();
+        int delta ;
+        delta=Math.pow(b, 2) - (4*a*c);
+        if ( delta > 0)
+        {
+            System.out.println("There are 2 roots : ");
+             x1=-b-Math.sqrt(delta)/(2a);
+             x2=-b+Math.sqrt(delta)/(2a);
+        }
+
+        else if ( delta<0 )
+        {
+            System.out.println("There is no root.");
+        }
+        else
+        {
+            System.out.println("There is one root:");
+            x=-b/(2a);
+        }
+
+
+
+
+
+    }
+
+
+}
